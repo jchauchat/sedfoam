@@ -449,7 +449,7 @@ void Foam::kineticTheoryModel::solve
     ///////////////////////////////////////
     // Saltation Model
     ///////////////////////////////////////
-    volScalarField K(draga_.K(mag(Ua_ - Ub_)));
+    volScalarField K(draga_.K(mag(Ua_ - Ub_),nutf));
     muSaltCoef_ = saltationModel_->musalt(alpha_+alphaSmall, ThetaClip+Tsmall,
                     rhoa_, da_, K+Ksmall);
     kappaSaltCoef_ = saltationModel_->kappasalt(alpha_+alphaSmall,

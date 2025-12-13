@@ -23,18 +23,18 @@ volScalarField magUr
     mag(-Ua + Ub)
 );
 
-volScalarField Ka(draga->K(magUr));
+volScalarField Ka(draga->K(magUr,turbulenceb->nut()));
 
 K = Ka;
 
 if (dragPhase == "b")
 {
-    volScalarField Kb(dragb->K(magUr));
+    volScalarField Kb(dragb->K(magUr,turbulenceb->nut()));
     K = Kb;
 }
 else if (dragPhase == "blended")
 {
-    volScalarField Kb(dragb->K(magUr));
+    volScalarField Kb(dragb->K(magUr,turbulenceb->nut()));
     K = (beta*Ka + alpha*Kb);
 }
 

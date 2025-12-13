@@ -73,7 +73,9 @@ public:
 
     // Member Functions
 
-        tmp<volScalarField> K(const volScalarField& Ur) const;
+        tmp<volScalarField> K(const volScalarField& Ur,
+                              const volScalarField& nutf
+                             ) const;
 };
 
 

@@ -30,7 +30,7 @@ else
 {
     deltaT = runTime.deltaTValue();
     time_average = runTime.value() - T0 + deltaT;
-    
+     
     betaUbMean  = ((time_average - deltaT) * betaUbMean  + deltaT * beta* Ub ) \
                   / time_average;
 
@@ -114,7 +114,7 @@ else
                       / time_average;
 
         dragConstbMean    = ((time_average - deltaT) * dragConstbMean
-                        - (UbPrimeF & (alpha* beta* draga->K(mag(Ub-Ua))*
+                        - (UbPrimeF & (alpha* beta* draga->K(mag(Ub-Ua),turbulenceb->nut())*
                           (Ub-Ua))/rhob)* deltaT ) / time_average;
 
         turbDiffusionMean_b = ((time_average - deltaT) * turbDiffusionMean_b
@@ -156,7 +156,7 @@ else
             dragConstbMean.write();
             turbDiffusionMean_b.write();
             turbDiffusionMeanWallNormal_b.write();
-             viscDiffusionMean_b.write();
+            viscDiffusionMean_b.write();
             viscDissMean_b.write();
             SGSDissMean_b.write();
             pressDiffusionMean_b.write();

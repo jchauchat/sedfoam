@@ -81,7 +81,7 @@ Foam::tmp<Foam::volScalarField> Foam::GidaspowSchillerNaumann_veg::K
 
     const dimensionedScalar Coe = dragConst;
 
-       Info<<"dragConst in GidaspowSchiller = \t"<<dragConst<<endl;
+    //Info<<"dragConst in GidaspowSchiller = \t"<<dragConst<<endl;
 
     volScalarField Re
     (

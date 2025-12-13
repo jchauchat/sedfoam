@@ -64,7 +64,8 @@ Foam::GidaspowSchillerNaumann::~GidaspowSchillerNaumann()
 
 Foam::tmp<Foam::volScalarField> Foam::GidaspowSchillerNaumann::K
 (
-    const volScalarField& Ur
+    const volScalarField& Ur,
+    const volScalarField& nutf
 ) const
 {
     volScalarField beta(max(scalar(1) - alpha_, scalar(1e-6)));
@@ -74,7 +75,7 @@ Foam::tmp<Foam::volScalarField> Foam::GidaspowSchillerNaumann::K
     //volScalarField Re(max(beta*Ur*phasea_.d()/phaseb_.nu(), scalar(1.0e-3)));
     volScalarField Re
     (
-        max(beta*Ur*phasea_.d()*phasea_.sF()/phaseb_.nu(), scalar(1.0e-9))
+        max(beta*Ur*phasea_.d()*phasea_.sF()/(phaseb_.nu()+nutf), scalar(1.0e-9))
     );
 
     volScalarField Cds

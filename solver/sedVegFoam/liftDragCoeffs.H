@@ -28,18 +28,24 @@ volScalarField magUb
     mag(Ub)
 );
 
-volScalarField Ka(draga->K(magUr));
+volScalarField nupt
+(
+    Cfs*pow(turbulenceb->epsilon(),1./3.)*pow(phasea->d(),4./3.)
+);
+
+
+volScalarField Ka(draga->K(magUr,nupt));
 
 K = Ka;
 
 if (dragPhase == "b")
 {
-    volScalarField Kb(dragb->K(magUr));
+    volScalarField Kb(dragb->K(magUr,nupt));
     K = Kb;
 }
 else if (dragPhase == "blended")
 {
-    volScalarField Kb(dragb->K(magUr));
+    volScalarField Kb(dragb->K(magUr,nupt));
     K = (beta*Ka + alpha*Kb);
 }
 

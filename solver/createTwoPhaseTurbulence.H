@@ -84,6 +84,15 @@ Switch SUSaniso
     twophaseRASProperties.getOrDefault("SUSaniso", false)
 );
 
+dimensionedScalar Cfs
+(
+    twophaseRASProperties.getOrDefault
+    (
+        "Cfs",
+        dimensionedScalar("Cfs", dimensionSet(0, 0, 0, 0, 0, 0, 0), 0)
+    )
+);
+
 dimensionedScalar Usmall
 (
     transportProperties.getOrDefault

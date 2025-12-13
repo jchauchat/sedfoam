@@ -64,12 +64,13 @@ Foam::Ergun::~Ergun()
 
 Foam::tmp<Foam::volScalarField> Foam::Ergun::K
 (
-    const volScalarField& Ur
+    const volScalarField& Ur,
+    const volScalarField& nutf
 ) const
 {
     volScalarField beta(max(scalar(1) - alpha_, scalar(1.0e-6)));
 
-    return 150.0*alpha_*phaseb_.nu()*phaseb_.rho()
+    return 150.0*alpha_*(phaseb_.nu()+nutf)*phaseb_.rho()
     /sqr(beta*phasea_.d()*phasea_.sF())
          + 1.75*phaseb_.rho()*Ur/(beta*phasea_.d()*phasea_.sF());
 }

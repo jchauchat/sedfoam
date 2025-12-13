@@ -145,7 +145,7 @@ public:
         //- Read model coefficients if they have changed
         virtual bool read();
 
-        //- Return SGS kinetic energy of phase a
+        //- Return SGS kinetic energy of phase b
         tmp<volScalarField> k(const tmp<volTensorField>& gradU) const
         {
             return pow(2.0*flmb_/fmmb_, 2.0/3.0)
@@ -157,6 +157,19 @@ public:
         virtual tmp<volScalarField> k() const
         {
             return k(fvc::grad(this->U_));
+        }
+        
+        //- Return SGS dissipation of kinetic energy of phase b
+        tmp<volScalarField> epsilon(const tmp<volTensorField>& gradU) const
+        {
+            return 1.048*(2.0*flmb_/fmmb_)/this->Ce_
+                   * sqr(this->delta())*pow(mag(dev(symm(gradU))),3.0);
+        }
+
+        //- Return SGS dissipation of kinetic energy
+        virtual tmp<volScalarField> epsilon() const
+        {
+            return epsilon(fvc::grad(this->U_));
         }
 
         //- Return the effective diffusivity for k

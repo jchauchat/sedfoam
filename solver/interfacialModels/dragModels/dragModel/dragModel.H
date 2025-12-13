@@ -116,7 +116,8 @@ public:
     // extracted from the dragFunction K,
     // so you MUST divide K by alpha.beta when implemnting the drag function
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  //
-    virtual tmp<volScalarField> K(const volScalarField& Ur) const = 0;
+    virtual tmp<volScalarField> K(const volScalarField& Ur,
+                              const volScalarField& nutf) const = 0;
 };
 
 

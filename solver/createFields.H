@@ -793,7 +793,7 @@ volScalarField K
         IOobject::NO_READ,
         IOobject::NO_WRITE
     ),
-    draga->K(mag(Ub-Ua))
+    draga->K(mag(Ub-Ua),alpha*nub*0)
 );
 
 volVectorField gradPs

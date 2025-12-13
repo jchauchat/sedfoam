@@ -64,10 +64,11 @@ Foam::Beetstra::~Beetstra()
 
 Foam::tmp<Foam::volScalarField> Foam::Beetstra::K
 (
-    const volScalarField& Ur
+    const volScalarField& Ur,
+    const volScalarField& nutf
 ) const
 {
-    volScalarField Re(max(Ur*phasea_.d()/phaseb_.nu(), scalar(1.0e-3)));
+    volScalarField Re(max(Ur*phasea_.d()/(phaseb_.nu()+nutf), scalar(1.0e-3)));
 
     volScalarField F
     (
