@@ -1,5 +1,6 @@
 dragModels/dragModel/dragModel.C
 dragModels/dragModel/newDragModel.C
+dragModels/Camenen/Camenen.C
 dragModels/Ergun/Ergun.C
 dragModels/Engelund/Engelund.C
 dragModels/GidaspowErgunWenYu/GidaspowErgunWenYu.C

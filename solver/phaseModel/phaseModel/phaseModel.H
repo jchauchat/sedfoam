@@ -74,6 +74,27 @@ class phaseModel
         
         //- exponent of the hindrance function for drag coeeficient
         dimensionedScalar hExp_;
+//- Settling velocity of flocs at zero concentration
+        dimensionedScalar Ws0_;
+
+        //- Settling velocity of flocs at the gel point concentration
+        dimensionedScalar WsGel_;
+
+        //- Fractal dimension of flocs
+        dimensionedScalar dimFrac_;
+
+        //- Empirical parameter for the transition between hindered settling
+        //            and permeability regimes
+        dimensionedScalar Xi_;
+
+        //- Gel point concentration
+        dimensionedScalar alphaGel_;
+
+        //- Maximum concentration of flocs
+        dimensionedScalar phiMax_;
+        
+        //- density of flocs
+        dimensionedScalar rhoFloc_;
 
         //- kinematic viscosity
         dimensionedScalar nu_;
@@ -148,6 +169,42 @@ public:
         {
             return hExp_;
         }
+        // beggining of floc parameters section
+        const dimensionedScalar& Ws0() const
+        {
+            return Ws0_;
+        }
+
+        const dimensionedScalar& WsGel() const
+        {
+            return WsGel_;
+        }
+
+        const dimensionedScalar& dimFrac() const
+        {
+            return dimFrac_;
+        }
+        
+        const dimensionedScalar& alphaGel() const
+        {
+            return alphaGel_;
+        }
+
+        const dimensionedScalar& phiMax() const
+        {
+            return phiMax_;
+        }
+        
+        const dimensionedScalar& rhoFloc() const
+        {
+            return rhoFloc_;
+        }
+        
+        const dimensionedScalar& Xi() const
+        {
+            return Xi_;
+        }
+        // end of floc parameters section
 
         const dimensionedScalar& nu() const
         {

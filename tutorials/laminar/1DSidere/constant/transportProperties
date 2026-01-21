@@ -1,0 +1,46 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.7.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      transportProperties;
+}
+// * * * * * * * * * * * * sediment properties * * * * * * * * * * * * //
+phasea
+{
+    rho             rho [ 1 -3 0 0 0 ] 2720;
+    nu              nu [ 0 2 -1 0 0 ] 1e-6;
+    d               d [ 0 1 0 0 0 0 0 ] 4e-6;
+    Ws0             Ws0 [ 0 1 -1 0 0 0 0 ] 1.15e-4;
+    WsGel           WsGel [ 0 1 -1 0 0 0 0 ] 8.5332e-6;
+    dimFrac         dimFrac [ 0 0 0 0 0 0 0 ] 2.748;
+    Xi              Xi [ 0 0 0 0 0 0 0 ] 1.155;
+    alphaGel        alphaGel [ 0 0 0 0 0 0 0 ] 0.28;
+    phiMax          phiMax [ 0 0 0 0 0 0 0 ] 0.85;
+    rhoFloc         rhoFloc [ 1 -3 0 0 0 0 0 ] 1566.588;
+}
+// * * * * * * * * * * * * fluid properties * * * * * * * * * * * * //
+phaseb
+{
+    rho             rho [ 1 -3 0 0 0 ] 1000;
+    nu              nu [ 0 2 -1 0 0 ] 1.047e-6;
+    d               d [ 0 1 0 0 0 0 0 ] 4e-6;
+}
+//*********************************************************************** //
+transportModel  Newtonian;
+
+nu              nu [ 0 2 -1 0 0 0 0 ] 1.047e-6;
+
+nuMax           nuMax [0 2 -1 0 0 0 0] 1e0;      // viscosity limiter for the Frictional model (required for stability)
+
+alphaSmall      alphaSmall [ 0 0 0 0 0 0 0 ] 1e-6;  // minimum volume fraction (phase a) for division by alpha 
+
+// ************************************************************************* //

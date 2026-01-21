@@ -91,6 +91,67 @@ Foam::phaseModel::phaseModel
             2.65
         )
     ),
+    Ws0_
+    (
+        dict_.lookupOrDefault
+        (
+            "Ws0",
+            dimensionedScalar("Ws0", dimensionSet(0, 1, -1, 0, 0, 0, 0),
+                                     1.15e-4)
+        )
+    ),
+    WsGel_
+    (
+        dict_.lookupOrDefault
+        (
+            "WsGel",
+            dimensionedScalar("WsGel0", dimensionSet(0, 1, -1, 0, 0, 0, 0),
+                                        8.53e-6)
+        )
+    ),
+    dimFrac_
+    (
+        dict_.lookupOrDefault
+        (
+            "dimFrac",
+            dimensionedScalar("dimFrac", dimensionSet(0, 0, 0, 0, 0, 0, 0),
+                                         2.748)
+        )
+    ),
+    Xi_
+    (
+        dict_.lookupOrDefault
+        (
+            "Xi",
+            dimensionedScalar("Xi", dimensionSet(0, 0, 0, 0, 0, 0, 0), 1.155)
+        )
+    ),
+    alphaGel_
+    (
+        dict_.lookupOrDefault
+        (
+            "alphaGel",
+            dimensionedScalar("alphaGel", dimensionSet(0, 0, 0, 0, 0, 0, 0),
+                                         0.28)
+        )
+    ),
+    phiMax_
+    (
+        dict_.lookupOrDefault
+        (
+            "phiMax",
+            dimensionedScalar("phiMax", dimensionSet(0, 0, 0, 0, 0, 0, 0), 0.85)
+        )
+    ),
+    rhoFloc_
+    (
+        dict_.lookupOrDefault
+        (
+            "rhoFloc",
+            dimensionedScalar("rhoFloc", dimensionSet(1, -3, 0, 0, 0, 0, 0),
+                                         1566.59)
+        )
+    ),
     nu_
     (
         dimensionedScalar::getOrDefault
